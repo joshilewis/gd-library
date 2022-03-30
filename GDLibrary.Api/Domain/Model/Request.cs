@@ -21,5 +21,9 @@
             
         }
 
+        public void Deactivate()
+        {
+            Active = false;
+        }
     }
 }

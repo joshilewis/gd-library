@@ -3,11 +3,11 @@ using GDLibrary.Api.Domain.Queries;
 
 namespace GDLibrary.Api.Data
 {
-    public class SaveRequest : ISaveRequest
+    public class AddRequest : IAddRequest
     {
         private readonly BooksContext context;
 
-        public SaveRequest(BooksContext context)
+        public AddRequest(BooksContext context)
         {
             this.context = context;
         }

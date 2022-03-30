@@ -7,9 +7,9 @@ namespace GDLibrary.Api.Domain.Services.RequestABook
     {
         private readonly IGetBookByTitle getBookByTitle;
         private readonly IGetActiveRequestsByTitle getActiveRequestsByTitle;
-        private readonly ISaveRequest saveRequest;
+        private readonly IAddRequest saveRequest;
 
-        public RequestABookHandler(IGetBookByTitle getBookByTitle, IGetActiveRequestsByTitle getActiveRequestsByTitle, ISaveRequest saveRequest)
+        public RequestABookHandler(IGetBookByTitle getBookByTitle, IGetActiveRequestsByTitle getActiveRequestsByTitle, IAddRequest saveRequest)
         {
             this.getBookByTitle = getBookByTitle;
             this.getActiveRequestsByTitle = getActiveRequestsByTitle;

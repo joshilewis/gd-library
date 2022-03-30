@@ -2,7 +2,7 @@
 
 namespace GDLibrary.Api.Domain.Queries
 {
-    public interface ISaveRequest
+    public interface IUpdateRequest
     {
         void Execute(Request request);
     }
