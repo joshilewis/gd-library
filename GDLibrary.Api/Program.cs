@@ -12,7 +12,8 @@ builder.Services.AddDbContext<BooksContext>(options =>
 
 builder.Services.AddScoped<RequestABookHandler>();
 builder.Services.AddScoped<IGetBookByTitle, GetBookByTitle>();
-
+builder.Services.AddScoped<IGetActiveRequestsByTitle, GetActiveRequestsByTitle>();
+builder.Services.AddScoped<ISaveRequest, SaveRequest>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

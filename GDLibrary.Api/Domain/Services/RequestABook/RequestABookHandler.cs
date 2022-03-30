@@ -6,10 +6,14 @@ namespace GDLibrary.Api.Domain.Services.RequestABook
     public class RequestABookHandler
     {
         private readonly IGetBookByTitle getBookByTitle;
+        private readonly IGetActiveRequestsByTitle getActiveRequestsByTitle;
+        private readonly ISaveRequest saveRequest;
 
-        public RequestABookHandler(IGetBookByTitle getBookByTitle)
+        public RequestABookHandler(IGetBookByTitle getBookByTitle, IGetActiveRequestsByTitle getActiveRequestsByTitle, ISaveRequest saveRequest)
         {
             this.getBookByTitle = getBookByTitle;
+            this.getActiveRequestsByTitle = getActiveRequestsByTitle;
+            this.saveRequest = saveRequest;
         }
 
         public Result Execute(RequestABookCommand command)
@@ -20,12 +24,17 @@ namespace GDLibrary.Api.Domain.Services.RequestABook
                 return new Result($"No book with title {command.Title} found.");
             }
 
-            return null;
+            IEnumerable<Request> activeRequests = getActiveRequestsByTitle.Execute(command.Title);
+            if (activeRequests.Any())
+            {
+                return new RequestABookResult(book.Id, false, book.Title, DateTime.Now);
+            }
+
+            var newRequest = new Request(book, command.Email);
+            saveRequest.Execute(newRequest);
+
+            return new RequestABookResult(book.Id, true, book.Title, newRequest.TimeStamp);
         }
     }
 
-    public interface IGetRequestByTitle
-    {
-        Request Execute(string title);
-    }
 }

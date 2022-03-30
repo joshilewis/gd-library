@@ -11,11 +11,11 @@
         public Result()
         {
             IsSuccessful = true;
-            Message = string.Empty;
+            Message = null;
         }
 
         public bool IsSuccessful { get; }
-        public string Message { get; }
+        public string? Message { get; }
 
 
     }

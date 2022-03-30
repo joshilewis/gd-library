@@ -23,10 +23,10 @@ namespace GDLibrary.Api.Data
 
             modelBuilder.Entity<Book>().HasData(new []
             {
-                new Book {Id = 1, Title = "Book Title 1"},
-                new Book {Id = 2, Title = "Book Title 2"},
-                new Book {Id = 3, Title = "Book Title 3"},
-                new Book {Id = 4, Title = "Book Title 4"},
+                new Book(1, "Book Title 1"),
+                new Book(2, "Book Title 2"),
+                new Book(3, "Book Title 3"),
+                new Book(4, "Book Title 4"),
             });
         }
 
