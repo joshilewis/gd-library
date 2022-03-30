@@ -2,7 +2,7 @@
 
 namespace GDLibrary.Api.Domain.Queries
 {
-    public interface IFindRequestById
+    public interface IGetActiveRequestByBookId
     {
         Request? Execute(int id);
     }

@@ -5,18 +5,18 @@ namespace GDLibrary.Api.Domain.Services.DeleteARequest
 {
     public class DeleteRequestHandler
     {
-        private readonly IFindRequestById findRequestById;
+        private readonly IGetActiveRequestByBookId _getActiveRequestByBookId;
         private readonly IUpdateRequest updateRequest;
 
-        public DeleteRequestHandler(IFindRequestById findRequestById, IUpdateRequest updateRequest)
+        public DeleteRequestHandler(IGetActiveRequestByBookId getActiveRequestByBookId, IUpdateRequest updateRequest)
         {
-            this.findRequestById = findRequestById;
+            this._getActiveRequestByBookId = getActiveRequestByBookId;
             this.updateRequest = updateRequest;
         }
 
         public void Execute(DeleteRequestCommand command)
         {
-            Request? request = findRequestById.Execute(command.Id);
+            Request? request = _getActiveRequestByBookId.Execute(command.Id);
             if (request == null) return;
 
             request.Deactivate();

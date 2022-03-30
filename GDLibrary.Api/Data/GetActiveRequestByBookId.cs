@@ -3,18 +3,18 @@ using GDLibrary.Api.Domain.Queries;
 
 namespace GDLibrary.Api.Data
 {
-    public class FindRequestById : IFindRequestById
+    public class GetActiveRequestByBookId : IGetActiveRequestByBookId
     {
         private readonly BooksContext booksContext;
 
-        public FindRequestById(BooksContext booksContext)
+        public GetActiveRequestByBookId(BooksContext booksContext)
         {
             this.booksContext = booksContext;
         }
 
         public Request? Execute(int id)
         {
-            return booksContext.Requests.SingleOrDefault(x => x.Active && x.Id == id);
+            return booksContext.Requests.SingleOrDefault(x => x.Active && x.Book.Id == id);
         }
     }
 }

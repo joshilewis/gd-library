@@ -16,7 +16,7 @@ builder.Services.AddScoped<IGetBookByTitle, GetBookByTitle>();
 builder.Services.AddScoped<IGetActiveRequestsByTitle, GetActiveRequestsByTitle>();
 builder.Services.AddScoped<IAddRequest, AddRequest>();
 builder.Services.AddScoped<DeleteRequestHandler>();
-builder.Services.AddScoped<IFindRequestById, FindRequestById>();
+builder.Services.AddScoped<IGetActiveRequestByBookId, GetActiveRequestByBookId>();
 builder.Services.AddScoped<IUpdateRequest, UpdateRequest>();
 
 builder.Services.AddControllers();
