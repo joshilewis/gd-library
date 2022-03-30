@@ -1,0 +1,6 @@
+﻿.vs
+GDLibrary.Api/bin
+GDLibrary.Api/obj
+Specs/bin
+**/obj
+*.user
