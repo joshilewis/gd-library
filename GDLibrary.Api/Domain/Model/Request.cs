@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }
         public string Email { get; set; }
-        public string Title { get; set; }
+        public Book Book { get; set; }
+        public DateTime TimeStamp { get; set; }
 
     }
 }
