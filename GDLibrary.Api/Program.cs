@@ -1,4 +1,6 @@
 using GDLibrary.Api.Data;
+using GDLibrary.Api.Domain.Queries;
+using GDLibrary.Api.Domain.Services.RequestABook;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BooksContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("ContactsContext")));
 
+builder.Services.AddScoped<RequestABookHandler>();
+builder.Services.AddScoped<IGetBookByTitle, GetBookByTitle>();
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
