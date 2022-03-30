@@ -1,6 +1,13 @@
+using GDLibrary.Api.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<BooksContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ContactsContext")));
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
