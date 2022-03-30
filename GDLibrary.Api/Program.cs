@@ -1,6 +1,7 @@
 using GDLibrary.Api.Data;
 using GDLibrary.Api.Domain.Queries;
 using GDLibrary.Api.Domain.Services.DeleteARequest;
+using GDLibrary.Api.Domain.Services.FindRequest;
 using GDLibrary.Api.Domain.Services.ListRequests;
 using GDLibrary.Api.Domain.Services.RequestABook;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IGetActiveRequestByBookId, GetActiveRequestByBookId>(
 builder.Services.AddScoped<IUpdateRequest, UpdateRequest>();
 builder.Services.AddScoped<ListRequestsHandler>();
 builder.Services.AddScoped<IListActiveRequests, ListActiveRequests>();
+builder.Services.AddScoped<FindRequestHandler>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
